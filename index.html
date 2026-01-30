@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UtilsJsComponents - Demo & Examples</title>
+    
+	<!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'> <path d='m2.344 15.271 2 3.46a1 1 0 0 0 1.366.365l1.396-.806c.58.457 1.221.832 1.895 1.112V21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1.598a8.094 8.094 0 0 0 1.895-1.112l1.396.806c.477.275 1.091.11 1.366-.365l2-3.46a1.004 1.004 0 0 0-.365-1.366l-1.372-.793a7.683 7.683 0 0 0-.002-2.224l1.372-.793c.476-.275.641-.89.365-1.366l-2-3.46a1 1 0 0 0-1.366-.365l-1.396.806A8.034 8.034 0 0 0 15 4.598V3a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v1.598A8.094 8.094 0 0 0 7.105 5.71L5.71 4.904a.999.999 0 0 0-1.366.365l-2 3.46a1.004 1.004 0 0 0 .365 1.366l1.372.793a7.683 7.683 0 0 0 0 2.224l-1.372.793c-.476.275-.641.89-.365 1.366zM12 8c2.206 0 4 1.794 4 4s-1.794 4-4 4-4-1.794-4-4 1.794-4 4-4z'/></svg>" />
+	
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,500;0,700;0,800;1,300;1,500;1,700;1,800&display=swap" rel="stylesheet">
+	<!--  -->
+	
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/danlexxx/my-cdn/ghl.css"/>
+    
+    <style>
+        /* Minimal custom styles */
+        .hide { display: none; }
+        .hidden { display: none; }
+        .demo-area {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-5 mb-4">
+        <div class="container text-center">
+            <h1 class="display-4">UtilsJsComponents</h1>
+            <p class="lead">Play Ground</p>
+        </div>
+    </header>
+	
+	<section id="" class="bg-light">
+		<div class="container">
+			
+			<!-- Target Toggle -->
+			<h2 class="mb-3">Basic Target Toggle</h2>
+			<button class="btn btn-primary" ujs-target-id="#loginBox1">Toggle Login</button>
+			<div id="loginBox1" style="display: none;">
+				<div class="card mt-3">
+					<div class="card-body">
+						<div class="flex-ss gap-2 flex-col">
+							<h5>Login Form</h5>
+							<input type="text" class="form-control" placeholder="Username">
+							<input type="password" class="form-control" placeholder="Password">
+							<button class="btn btn-success">Login</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end Target Toggle -->
+			
+			<div class="pb-5 mb-5 bdb bd-black-15"></div>
+			
+			<!-- Target Toggle -->
+			<h2 class="mb-3">Basic Password Toggle</h2>
+			<div class="card mt-3">
+				<div class="card-body">
+					<div class="flex-ss gap-2 flex-col">
+						<h5>Login Form</h5>
+						<input type="text" class="form-control" placeholder="Username">
+						<input type="password" class="form-control" placeholder="Password" ujs-pass-show-hide>
+						<button class="btn btn-success">Login</button>
+					</div>
+				</div>
+			</div>
+			<!-- end Target Toggle -->
+			
+		</div>
+	</section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5 bg-light">
+        <p class="text-muted mb-0">UtilsJsComponents - Simple UI interactions without writing JavaScript</p>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+    <!-- UtilsJsComponents -->
+    <script src="./utils-js-components.js"></script>
+</body>
+</html>

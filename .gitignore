@@ -1,0 +1,49 @@
+#This is the git ignore file if you want to use the free Unity 
+# the ! negates an ignore, so you ignore everything in Library then
+#un-ignore the metadata folder and those specific files
+#use at your own risk.
+
+#NOTE: this will cause your collaborators to re-import assets
+# (previews and cache), but it seems to have no value to keep in source control
+
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+
+# NOTES:
+# A leading "**" followed by a slash means match in all directories. For example, "**/foo" matches file or directory "foo" anywhere, the same as pattern "foo". "**/foo/bar" matches file or directory "bar" anywhere that is directly under directory "foo".
+# A trailing "/**" matches everything inside. For example, "abc/**" matches all files inside directory "abc", relative to the location of the .gitignore file, with infinite depth.
+# A slash followed by two consecutive asterisks then a slash matches zero or more directories. For example, "a/**/b" matches "a/b", "a/x/b", "a/x/y/b" and so on.
+# Your case matches the first one, so this line: **/.idea/ means: ignore .idea directory in any directory within the repository. So it would match /.idea/, /foo/.idea/, /foo/bar/.idea/ etc.
+# ref: https://stackoverflow.com/questions/45473973/whats-the-meaning-of-in-the-beginning-of-idea-in-my-gitignore
+
+**/.DS_Store
+**/error_log
+**/.~lock*
+
+#exclude folders (everywhere found)
+**/. */
+**/*bkup*/
+**/logs/
+**/tmp/
+
+#exclude file archives (everywhere found)
+**/*.zip
+**/*.rar
+**/*.gzip
+
+#exclude certain file types (everywhere found)
+**/*.md
+**/*.json
+**/*.pem
+**/*.cmd
+**/*.bat
+**/*.txt
+**/*.jpeg
+**/*.jpg
+**/*.png
+**/*.svg
+**/*.gif
+**/*.mp4
+**/*.webm
