@@ -72,6 +72,18 @@
             border-left: 5px solid #198754;
         }
         
+        .feature-section.show-more {
+            border-left: 5px solid #fd7e14;
+        }
+        
+        .feature-section.load-more {
+            border-left: 5px solid #6f42c1;
+        }
+        
+        .feature-section.copy-clipboard {
+            border-left: 5px solid #0dcaf0;
+        }
+        
         .feature-section h2 {
             color: #212529;
             margin-bottom: 15px;
@@ -133,6 +145,9 @@
                     <div class="nav nav-pills flex-column w-100">
                         <a class="nav-link" href="#feature-target-toggle">Target Toggle</a>
                         <a class="nav-link" href="#feature-password-toggle">Password Toggle</a>
+                        <a class="nav-link" href="#feature-show-more">Show More / Less</a>
+                        <a class="nav-link" href="#feature-load-more">Load More</a>
+                        <a class="nav-link" href="#feature-copy-clipboard">Copy to Clipboard</a>
                     </div>
                 </nav>
             </div>
@@ -322,10 +337,10 @@
                                         <div class="card-body">
                                             <h5>Sidebar</h5>
                                             <ul class="list-unstyled">
-                                                <li>📊 Dashboard</li>
-                                                <li>👤 Profile</li>
-                                                <li>⚙️ Settings</li>
-                                                <li>🚪 Logout</li>
+                                                <li>?? Dashboard</li>
+                                                <li>?? Profile</li>
+                                                <li>?? Settings</li>
+                                                <li>?? Logout</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -355,7 +370,7 @@
                                         ujs-anim-fade 
                                         ujs-anim-duration="400"
                                         ujs-btn-active-class="btn-success">
-                                    🎉 Show Complete Example
+                                    ?? Show Complete Example
                                 </button>
                                 
                                 <div id="completeBox" class="hidden">
@@ -364,10 +379,10 @@
                                             <h5 class="mb-0">All Features Combined!</h5>
                                         </div>
                                         <div class="card-body">
-                                            <p>✅ Custom toggle class (<code>hidden</code>)</p>
-                                            <p>✅ Fade animation enabled</p>
-                                            <p>✅ Custom duration (400ms)</p>
-                                            <p>✅ Custom active class (<code>btn-success</code>)</p>
+                                            <p>? Custom toggle class (<code>hidden</code>)</p>
+                                            <p>? Fade animation enabled</p>
+                                            <p>? Custom duration (400ms)</p>
+                                            <p>? Custom active class (<code>btn-success</code>)</p>
                                             <p class="mb-0">This demonstrates all features working together seamlessly!</p>
                                         </div>
                                     </div>
@@ -521,6 +536,266 @@
     &lt;/div&gt;
     &lt;button type="submit" class="btn btn-primary"&gt;Sign In&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ==========================================
+                     FEATURE: SHOW MORE / SHOW LESS
+                     ========================================== -->
+                <section id="feature-show-more" class="feature-section show-more">
+                    <h2><i class="bi bi-arrows-expand"></i> Show More / Show Less</h2>
+                    <p class="feature-description">
+                        Collapse long content to a fixed height with a fade-out hint, then expand it fully with a button click. Works with any content � paragraphs, lists, mixed elements.
+                    </p>
+
+                    <!-- Example 1: Hard toggle -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Instant Toggle (Hard Show)</h3>
+                            <p class="text-muted">No <code>ujs-anim-fade</code> attribute on the button means the expand/collapse snaps instantly.</p>
+
+                            <div class="demo-area">
+                                <div id="showMoreBox1" ujs-show-more-content ujs-show-more-height="100">
+                                    <p>CodeIgniter 3 is a lightweight PHP framework built for speed and simplicity. It follows the MVC pattern, has a small footprint, and requires minimal configuration to get started.</p>
+                                    <p>It ships with libraries for form validation, sessions, file uploads, database abstraction, and more, without forcing a lot of boilerplate on the developer.</p>
+                                    <p>While CI3 is in maintenance mode, it's still widely used in production apps due to its simplicity and predictable behavior.</p>
+                                    <p>This paragraph and anything below it is only visible once the content is expanded.</p>
+                                </div>
+                                <button class="btn btn-outline-warning mt-2" ujs-show-more-target="#showMoreBox1">Show More</button>
+                            </div>
+
+                            <pre><code class="language-html">&lt;div id="showMoreBox1" ujs-show-more-content ujs-show-more-height="100"&gt;
+    &lt;p&gt;Paragraph 1...&lt;/p&gt;
+    &lt;p&gt;Paragraph 2...&lt;/p&gt;
+    &lt;p&gt;Paragraph 3...&lt;/p&gt;
+&lt;/div&gt;
+&lt;button ujs-show-more-target="#showMoreBox1"&gt;Show More&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Example 2: Fade toggle -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Smooth Toggle (Fade)</h3>
+                            <p class="text-muted">Add <code>ujs-anim-fade</code> (and optionally <code>ujs-anim-duration</code>) to the button for a smooth height transition.</p>
+
+                            <div class="demo-area">
+                                <div id="showMoreBox2" ujs-show-more-content ujs-show-more-height="80">
+                                    <ul class="mb-0">
+                                        <li>First item in the list</li>
+                                        <li>Second item in the list</li>
+                                        <li>Third item, still visible</li>
+                                        <li>Fourth item, hidden until expanded</li>
+                                        <li>Fifth item, hidden until expanded</li>
+                                        <li>Sixth item, hidden until expanded</li>
+                                    </ul>
+                                </div>
+                                <button class="btn btn-warning mt-2" ujs-show-more-target="#showMoreBox2" ujs-anim-fade ujs-anim-duration="400" ujs-btn-active-class="active">Show More</button>
+                            </div>
+
+                            <pre><code class="language-html">&lt;div id="showMoreBox2" ujs-show-more-content ujs-show-more-height="80"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Item 1&lt;/li&gt;
+        ...
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;button 
+    ujs-show-more-target="#showMoreBox2" 
+    ujs-anim-fade 
+    ujs-anim-duration="400"&gt;
+    Show More
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Example 3: Custom labels -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Custom Labels & Fade Color</h3>
+                            <p class="text-muted">Use <code>ujs-show-more-text</code> / <code>ujs-show-more-text-less</code> for custom labels, and <code>ujs-show-more-fade-color</code> if your box isn't on a white background.</p>
+
+                            <div class="demo-area" style="background: #f1f3f5;">
+                                <div id="showMoreBox3" ujs-show-more-content ujs-show-more-height="90" ujs-show-more-fade-color="#f1f3f5">
+                                    <p>This box sits on a light grey background instead of white.</p>
+                                    <p>The fade overlay color attribute makes sure the gradient blends with the surrounding background instead of showing a white box.</p>
+                                    <p>Extra content that appears once expanded goes here, demonstrating the custom fade-out color matches the demo area.</p>
+                                </div>
+                                <button class="btn btn-outline-warning mt-2" ujs-show-more-target="#showMoreBox3" ujs-anim-fade ujs-show-more-text="Read More" ujs-show-more-text-less="Collapse">Read More</button>
+                            </div>
+
+                            <pre><code class="language-html">&lt;div 
+    id="showMoreBox3" 
+    ujs-show-more-content 
+    ujs-show-more-height="90" 
+    ujs-show-more-fade-color="#f1f3f5"&gt;
+    Content...
+&lt;/div&gt;
+&lt;button 
+    ujs-show-more-target="#showMoreBox3" 
+    ujs-anim-fade
+    ujs-show-more-text="Read More" 
+    ujs-show-more-text-less="Collapse"&gt;
+    Read More
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ==========================================
+                     FEATURE: LOAD MORE
+                     ========================================== -->
+                <section id="feature-load-more" class="feature-section load-more">
+                    <h2><i class="bi bi-arrow-down-circle"></i> Load More</h2>
+                    <p class="feature-description">
+                        Show an initial batch of items and reveal more, X at a time, each time the button is clicked. The button disables itself once everything has been shown.
+                    </p>
+
+                    <!-- Example 1: Hard show -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Instant Reveal (Hard Show)</h3>
+                            <p class="text-muted">Shows 3 items initially, reveals 3 more per click, no animation.</p>
+
+                            <div class="demo-area">
+                                <div id="loadMoreList1" ujs-load-more-container ujs-load-more-initial="3" ujs-load-more-step="3">
+                                    <div class="card mb-2"><div class="card-body py-2">Item 1</div></div>
+                                    <div class="card mb-2"><div class="card-body py-2">Item 2</div></div>
+                                    <div class="card mb-2"><div class="card-body py-2">Item 3</div></div>
+                                    <div class="card mb-2"><div class="card-body py-2">Item 4</div></div>
+                                    <div class="card mb-2"><div class="card-body py-2">Item 5</div></div>
+                                    <div class="card mb-2"><div class="card-body py-2">Item 6</div></div>
+                                    <div class="card mb-2"><div class="card-body py-2">Item 7</div></div>
+                                    <div class="card mb-2"><div class="card-body py-2">Item 8</div></div>
+                                </div>
+                                <button class="btn btn-outline-primary" style="border-color:#6f42c1; color:#6f42c1;" ujs-load-more-target="#loadMoreList1">Load More</button>
+                            </div>
+
+                            <pre><code class="language-html">&lt;div id="loadMoreList1" ujs-load-more-container ujs-load-more-initial="3" ujs-load-more-step="3"&gt;
+    &lt;div class="card mb-2"&gt;Item 1&lt;/div&gt;
+    &lt;div class="card mb-2"&gt;Item 2&lt;/div&gt;
+    ...
+&lt;/div&gt;
+&lt;button ujs-load-more-target="#loadMoreList1"&gt;Load More&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Example 2: Fade reveal -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Fade-In Reveal</h3>
+                            <p class="text-muted">Add <code>ujs-anim-fade</code> on the button to fade newly revealed items in.</p>
+
+                            <div class="demo-area">
+                                <div id="loadMoreList2" ujs-load-more-container ujs-load-more-initial="2" ujs-load-more-step="2">
+                                    <div class="alert alert-light border mb-2">Task: Set up project repo</div>
+                                    <div class="alert alert-light border mb-2">Task: Configure CI pipeline</div>
+                                    <div class="alert alert-light border mb-2">Task: Write unit tests</div>
+                                    <div class="alert alert-light border mb-2">Task: Review pull request</div>
+                                    <div class="alert alert-light border mb-2">Task: Deploy to staging</div>
+                                    <div class="alert alert-light border mb-2">Task: Update documentation</div>
+                                </div>
+                                <button class="btn btn-primary" style="background-color:#6f42c1; border-color:#6f42c1;" ujs-load-more-target="#loadMoreList2" ujs-anim-fade ujs-anim-duration="400" ujs-load-more-text-done="All tasks loaded">Load More Tasks</button>
+                            </div>
+
+                            <pre><code class="language-html">&lt;div id="loadMoreList2" ujs-load-more-container ujs-load-more-initial="2" ujs-load-more-step="2"&gt;
+    &lt;div class="alert alert-light"&gt;Task 1&lt;/div&gt;
+    ...
+&lt;/div&gt;
+&lt;button 
+    ujs-load-more-target="#loadMoreList2" 
+    ujs-anim-fade 
+    ujs-anim-duration="400"
+    ujs-load-more-text-done="All tasks loaded"&gt;
+    Load More Tasks
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ==========================================
+                     FEATURE: COPY TO CLIPBOARD
+                     ========================================== -->
+                <section id="feature-copy-clipboard" class="feature-section copy-clipboard">
+                    <h2><i class="bi bi-clipboard"></i> Copy to Clipboard</h2>
+                    <p class="feature-description">
+                        Copy text from any element � visible inputs, hidden inputs, or plain elements like divs � to the clipboard with one click.
+                    </p>
+
+                    <!-- Example 1: Visible input -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Copy From a Visible Input</h3>
+                            <p class="text-muted">Point <code>ujs-copy-target</code> at any input, textarea, or element.</p>
+
+                            <div class="demo-area">
+                                <div class="input-group" style="max-width: 400px;">
+                                    <input type="text" id="shareLink1" class="form-control" value="https://example.com/invite/ab12cd34" readonly>
+                                    <button class="btn btn-info text-white" ujs-copy-target="#shareLink1">Copy</button>
+                                </div>
+                            </div>
+
+                            <pre><code class="language-html">&lt;input type="text" id="shareLink1" class="form-control" value="https://example.com/invite/ab12cd34" readonly&gt;
+&lt;button ujs-copy-target="#shareLink1"&gt;Copy&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Example 2: Hidden input -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Copy From a Hidden Input</h3>
+                            <p class="text-muted">Works even when the source input is a <code>type="hidden"</code> field, not just visible ones.</p>
+
+                            <div class="demo-area">
+                                <input type="hidden" id="apiKey1" value="sk_live_9f8a7b6c5d4e3f2g1h0i">
+                                <button class="btn btn-outline-info" ujs-copy-target="#apiKey1" ujs-copy-success-text="Key copied!">Copy API Key</button>
+                            </div>
+
+                            <pre><code class="language-html">&lt;input type="hidden" id="apiKey1" value="sk_live_9f8a7b6c5d4e3f2g1h0i"&gt;
+&lt;button 
+    ujs-copy-target="#apiKey1" 
+    ujs-copy-success-text="Key copied!"&gt;
+    Copy API Key
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Example 3: Plain element (div) -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Copy Plain Text From a Div</h3>
+                            <p class="text-muted">Copies the element's text content only (no HTML markup).</p>
+
+                            <div class="demo-area">
+                                <div id="codeBlock1" class="p-2 bg-dark text-light rounded" style="font-family: monospace; max-width: 400px;">
+                                    npm install utils-js-components
+                                </div>
+                                <button class="btn btn-info text-white mt-2" ujs-copy-target="#codeBlock1" ujs-copy-success-duration="1500">Copy Command</button>
+                            </div>
+
+                            <pre><code class="language-html">&lt;div id="codeBlock1"&gt;npm install utils-js-components&lt;/div&gt;
+&lt;button 
+    ujs-copy-target="#codeBlock1" 
+    ujs-copy-success-duration="1500"&gt;
+    Copy Command
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Example 4: Literal value, no target element -->
+                    <div class="example-card card">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Copy a Literal Value</h3>
+                            <p class="text-muted">No source element needed � use <code>ujs-copy-value</code> directly on the button.</p>
+
+                            <div class="demo-area">
+                                <button class="btn btn-outline-info" ujs-copy-value="support@example.com">Copy Support Email</button>
+                            </div>
+
+                            <pre><code class="language-html">&lt;button ujs-copy-value="support@example.com"&gt;Copy Support Email&lt;/button&gt;</code></pre>
                         </div>
                     </div>
 
