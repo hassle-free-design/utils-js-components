@@ -95,11 +95,58 @@
             $('[ujs-pass-show-hide]').each(function() {
                 self.passwordToggle_setup($(this));
             });
+			
+			// in order for the ajax loaded content inputs to be taken into account there are 2 options:
+			// # Option 1: call UtilsJsComponents.passwordToggle_reinit(); like so:
+			// $('#myModal').on('shown.bs.modal', function() {
+				// UtilsJsComponents.passwordToggle_reinit();
+			// });
+			// # Option 2
+			// Watch for new password inputs added to DOM
+			var observer = new MutationObserver(function(mutations) {
+				mutations.forEach(function(mutation) {
+					// Check added nodes
+					$(mutation.addedNodes).each(function() {
+						if ($(this).is('[ujs-pass-show-hide]')) {
+							// Direct match
+							self.passwordToggle_setup($(this));
+						}
+						// Check children
+						$(this).find('[ujs-pass-show-hide]').each(function() {
+							self.passwordToggle_setup($(this));
+						});
+					});
+				});
+			});
+			// Start observing the document body
+			observer.observe(document.body, {
+				childList: true,
+				subtree: true
+			});
         },
+		
+		// this is only needed if not using the MutationObserver Option in the passwordToggle_init()
+		passwordToggle_reinit: function() {
+			var self = this;
+			
+			// Find all password inputs with the attribute
+			$('[ujs-pass-show-hide]').each(function() {
+				// Check if already setup to avoid duplicates
+				if (!$(this).data('ujs-password-setup')) {
+					self.passwordToggle_setup($(this));
+				}
+			});
+		},
         
         passwordToggle_setup: function($input) {
             var self = this;
             
+			// Check if already setup (prevent duplicates)
+			if ($input.data('ujs-password-setup')) {
+				return;
+			}
+			$input.data('ujs-password-setup', true);
+			
             // Get custom button classes
             var customBtnClass = $input.attr('ujs-pass-btn-class') || '';
             var btnClass = 'pass-eye' + (customBtnClass ? ' ' + customBtnClass : '');
@@ -111,6 +158,18 @@
             
             // Wrap the input
             $input.wrap('<div class="password-toggle-wrapper" style="position: relative; display: inline-block; width: 100%;"></div>');
+			
+			// Find and move feedback elements into wrapper
+			var $wrapper = $input.parent('.password-toggle-wrapper');
+			var $invalidFeedback = $input.next('.invalid-feedback');
+			var $validFeedback = $input.next('.valid-feedback');
+
+			if ($invalidFeedback.length) {
+				$wrapper.append($invalidFeedback);
+			}
+			if ($validFeedback.length) {
+				$wrapper.append($validFeedback);
+			}
             
             // Create toggle button with icons
             var $button = $('<button type="button" class="' + btnClass + '" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: none; background: transparent; cursor: pointer; padding: 5px;"></button>');
