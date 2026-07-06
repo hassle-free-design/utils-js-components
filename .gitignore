@@ -34,7 +34,6 @@
 **/*.gzip
 
 #exclude certain file types (everywhere found)
-**/*.md
 **/*.json
 **/*.pem
 **/*.cmd
