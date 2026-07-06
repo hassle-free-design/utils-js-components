@@ -15,6 +15,9 @@ A lightweight jQuery plugin for common UI interactions without writing JavaScrip
 - ✅ Zero configuration required
 - ✅ Works with dynamically added elements
 
+## Demo
+[Live Demo](https://hassle-free-design.github.io/utils-js-components/)
+
 ## Installation
 
 1. Include jQuery (required):
